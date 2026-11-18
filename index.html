@@ -460,7 +460,7 @@ function stavTeren(force){
   const dm=new THREE.Object3D(),col=new THREE.Color();
   if(voda.length){
     const pis=new THREE.InstancedMesh(box(1.14,.04,1.14),MAT.pisek,voda.length),vo=new THREE.InstancedMesh(box(1,.05,1),MAT.voda,voda.length);
-    voda.forEach(([x,z],i)=>{dm.position.set(x+.5,-.03,z+.5);dm.scale.set(1,1,1);dm.rotation.set(0,0,0);dm.updateMatrix();pis.setMatrixAt(i,dm.matrix);dm.position.y=-.005;dm.updateMatrix();vo.setMatrixAt(i,dm.matrix)});
+    voda.forEach(([x,z],i)=>{dm.position.set(x+.5,-.03,z+.5);dm.scale.set(1,1,1);dm.rotation.set(0,0,0);dm.updateMatrix();pis.setMatrixAt(i,dm.matrix);dm.position.y=-.021;dm.updateMatrix();vo.setMatrixAt(i,dm.matrix)});
     pis.receiveShadow=vo.receiveShadow=true;terrG.add(pis,vo)}
   if(kopce.length){
     const kg=new THREE.ConeGeometry(.86,1,7);kg.translate(0,.5,0);
@@ -515,25 +515,25 @@ function pilire(g,P,y){for(const p of P){const A=mid(p[0]),B=p[1]<0?deadEnd(p[0]
 // tři vzhledy mostů: 0 dřevěný s kozlíky, 1 kamenný s oblouky, 2 železný s příhradovou konstrukcí
 const MOSTMAT=[[M(0x8a5a2b),M(0x6b4220)],[M(0xa9a39a),M(0x7d776f)],[M(0x9aa3ab),M(0xc0392b)]];
 function mostDil(g,P,st){const [deska,nosna]=MOSTMAT[st];
-  for(const p of P){g.add(pas(p[0],p[1],.56,.05,0,deska,0));
+  for(const p of P){g.add(pas(p[0],p[1],.56,.045,-.038,deska,0));
     const rov=p[1]>=0&&(p[0]+2)%4===p[1];
     for(const t of [.25,.75]){const A=mid(p[0]),B=p[1]<0?deadEnd(p[0]):mid(p[1]);let x,z;if(rov||p[1]<0){x=A[0]+(B[0]-A[0])*t;z=A[1]+(B[1]-A[1])*t}else{const q=pathPt(p[0],p[1],t);x=q[0];z=q[1]}
       if(st===0){const a=mesh(box(.05,.55,.05),nosna,x-.5,-.25,z-.5);a.rotation.z=.35;g.add(a);const b=mesh(box(.05,.55,.05),nosna,x-.5,-.25,z-.5);b.rotation.z=-.35;g.add(b)}
       else if(st===1){g.add(mesh(box(.2,.5,.2),nosna,x-.5,-.24,z-.5))}
       else g.add(mesh(box(.06,.5,.06),M(0x555b62),x-.5,-.24,z-.5))}
     if(rov){const ax=p[0]%2;// osa: 0 = sever–jih
-      if(st===1){const ob=new THREE.Mesh(new THREE.TorusGeometry(.25,.045,6,14,PI),nosna);ob.position.set(0,-.02,0);if(ax===0)ob.rotation.y=HP;ob.castShadow=true;g.add(ob)}
-      if(st===2){for(const s of [-1,1]){const st2=new THREE.Group();st2.position.set(ax?0:s*.27,.06,ax?s*.27:0);if(!ax)st2.rotation.y=HP;
+      if(st===1){const ob=new THREE.Mesh(new THREE.TorusGeometry(.25,.045,6,14,PI),nosna);ob.position.set(0,-.05,0);ob.rotation.z=PI;if(ax===0)ob.rotation.y=HP;ob.castShadow=true;g.add(ob)}
+      if(st===2){for(const s of [-1,1]){const st2=new THREE.Group();st2.position.set(ax?0:s*.27,.01,ax?s*.27:0);if(!ax)st2.rotation.y=HP;
         st2.add(mesh(box(1,.04,.03),nosna,0,.26,0));st2.add(mesh(box(1,.03,.03),nosna,0,.02,0));
         for(let i=0;i<4;i++){const d=mesh(box(.33,.03,.03),nosna,-.375+i*.25,.14,0);d.rotation.z=i%2?.75:-.75;g.add(st2);st2.add(d)}}}
-      if(st===0)for(const s of [-1,1])g.add(mesh(box(ax?1:.03,.06,ax?.03:1),nosna,ax?0:s*.27,.1,ax?s*.27:0))}}}
+      if(st===0)for(const s of [-1,1])g.add(mesh(box(ax?1:.03,.06,ax?.03:1),nosna,ax?0:s*.27,.05,ax?s*.27:0))}}}
 const tileObj=new Map(),tileG=new THREE.Group();scene.add(tileG);
 function popisDilu(tl,k){const [x,y]=XY(k);return [tl.t,tl.r,tl.w?'w'+(tl.most||0):0,isHill(terr(x,y))?'h'+portalHrany(x,y).join(''):0,T[tl.t].sw||tl.t==='semafor'?tl.s:0,tl.styl||'',(()=>{const r=rovinaV(x,y);return r?[r.h,r.gx,r.gy].map(v=>v.toFixed(2)).join('/')+'/'+vysUroven(x,y)+(roads.has(k)?'r':''):''})()].join('|')}
 function stavDil(tl,k){
   const [x,y]=XY(k),g=new THREE.Group(),t=tl.t,P=T[t].p,dyn={};
   g.position.set(x+.5,0,y+.5);
   const inner=new THREE.Group();inner.rotation.y=-tl.r*HP;g.add(inner);
-  const vy=tl.w?.06:0;
+  const vy=0;
   if(tl.w)mostDil(inner,P.filter(p=>!p[2]),tl.most||0);
   if(t==='tocna'){
     inner.add(mesh(cyl(.45,.45,.04,24),MAT.drevo,0,.0,0));inner.add(mesh(cyl(.41,.41,.05,24),MAT.tmava,0,.005,0));
@@ -592,7 +592,7 @@ function syncDily(){
 // ---------- silnice ----------
 const roadObj=new Map(),roadG=new THREE.Group();scene.add(roadG);
 function stavSilnici(k,m){const [x,y]=XY(k),g=new THREE.Group(),e=edgesOf(m),voda=terr(x,y)==='w';g.position.set(x+.5,0,y+.5);
-  const vy=voda?.06:0;if(voda){g.add(mesh(box(1,.04,1),MAT.most,0,.02,0))}
+  const vy=0;if(voda){g.add(mesh(box(1,.04,1),MAT.most,0,-.02,0))}
   const curve=e.length===2&&(e[0]+2)%4!==e[1];
   const vrstva=(w,h,mat,yy)=>{if(curve){g.add(pas(e[0],e[1],w,h,yy,mat,0));return}
     for(const d of e){const A=[.5,.5],B=MID[d];g.add(usek(A,B,w,h,yy,mat,0))}if(e.length!==2)g.add(mesh(cyl(w/2,w/2,h,16),mat,0,yy+h/2,0))};
@@ -706,13 +706,13 @@ function syncVlaky(){
   for(const [tr,o] of vlakObj)if(!trains.includes(tr)){for(const c of o)vlakG.remove(c);vlakObj.delete(tr)}
   for(const tr of trains){let o=vlakObj.get(tr);if(!o){o=tr.cars.map((kind,k)=>kind==='L'?lokomotiva(tr.def.col):kind==='D'?dieselka(tr.def.col):vagonek(kind,carCol(tr,k)));o.forEach(c=>vlakG.add(c));vlakObj.set(tr,o)}
     const j=tr.jump>0?1+Math.sin((1-tr.jump/.4)*PI)*.28:1;
-    o.forEach((c,k)=>{const p=tr.pos[k];if(!p)return;const vh=p.layer?0:vyskaV(p.x,p.y,p.seg.x,p.seg.y);c.position.set(p.x,p.layer?.39:vh||((tiles.get(K(p.seg.x,p.seg.y))||{}).w?.06:0),p.y);
+    o.forEach((c,k)=>{const p=tr.pos[k];if(!p)return;const vh=p.layer?0:vyskaV(p.x,p.y,p.seg.x,p.seg.y);c.position.set(p.x,p.layer?.39:vh,p.y);
       const f=p.a+(k===0&&tr.revd?PI:0),rv=p.layer?null:rovinaV(p.seg.x,p.seg.y);c.rotation.y=-f;c.rotation.z=rv?Math.atan(rv.gx*Math.cos(f)+rv.gy*Math.sin(f)):0;c.scale.setScalar(k===0?j:1);
       c.visible=!((isHill(terr(p.seg.x,p.seg.y))&&p.off>p.L*.18&&p.off<p.L*.82)||(p.seg.t==='depo'&&(p.seg.rev?p.L-p.off:p.off)>p.L*.45))})}}
 function syncAuta(){
   for(const [c,g] of autaObj)if(!cars.includes(c)){autaG.remove(g);autaObj.delete(c)}
   for(const c of cars){let g=autaObj.get(c);if(!g){g=autoModel(c.def);autaG.add(g);autaObj.set(c,g)}
-    const j=c.jump>0?1+Math.sin((1-c.jump/.4)*PI)*.25:1;g.position.set(c.p.x,terr(c.s.x,c.s.y)==='w'?.06:0,c.p.y);g.rotation.y=-c.p.a;g.scale.setScalar(j);
+    const j=c.jump>0?1+Math.sin((1-c.jump/.4)*PI)*.25:1;g.position.set(c.p.x,0,c.p.y);g.rotation.y=-c.p.a;g.scale.setScalar(j);
     if(g.userData.majak)g.userData.majak.material=c.blink>0&&Math.floor(now*6)%2?MAT.cervenaS:MAT.modra;
     if(g.userData.buben)g.userData.buben.rotation.y=now*3;if(g.userData.tel)g.userData.tel.rotation.y=Math.sin(now*.8)*.25;
     g.visible=!(isHill(terr(c.s.x,c.s.y))||(roadSp.get(K(c.s.x,c.s.y))==='depoA'&&c.s.t<0&&c.h>.25))}}
@@ -886,7 +886,7 @@ function modelDuch(ch){const g=model3D(ch);if(!g)return null;g.traverse(o=>{if(o
 </script>
 <script>
 'use strict';
-const VERZE='765db3cd';
+const VERZE='610ea3f1';
 const CHYBY_JS=[];
 addEventListener('error',e=>{CHYBY_JS.push((e.message||'chyba')+' @'+(e.lineno||'?'));if(CHYBY_JS.length>5)CHYBY_JS.shift()});
 addEventListener('unhandledrejection',e=>{CHYBY_JS.push('promise: '+String(e.reason&&e.reason.message||e.reason));if(CHYBY_JS.length>5)CHYBY_JS.shift()});
