@@ -20,6 +20,12 @@ Většina je převzata hotová (oříznutá a sjednocená) z Davídkova městeč
 | houkacka_kratky | autíčka a autobus (ťuknutí) | BigSoundBank #0258 „Recent Car Horn #2“ – https://bigsoundbank.com/recent-car-horn-2-s0258.html | DenisChardonnet | CC0 1.0 |
 | klap | pokládání kolejí a silnic | Wikimedia Commons „Knocking on wood or door.ogg“ – https://commons.wikimedia.org/wiki/File:Knocking_on_wood_or_door.ogg (zdroj PDSounds; vystřižen jeden úder 2,23–2,58 s, mono 22,05 kHz, normalizace, AAC 48 kb/s; zdroj v zvuky-zdroj/) | stephan | Public domain |
 | splouch | vodárna a myčka | Wikimedia Commons „Bathtub water splashes.ogg“ – https://commons.wikimedia.org/wiki/File:Bathtub_water_splashes.ogg (zdroj PDSounds; vystřiženo šplouchnutí 3,52–4,32 s, úpravy jako výše) | gradha | Public domain |
+| hodiny_kratky | kostel (zvon) | BigSoundBank #3446 „Bell 1 O'clock“ – https://bigsoundbank.com/bell-1-o-clock-s3446.html (převzato z Městečka) | Joseph SARDIN & Axeline T. | CC0 1.0 |
+| trumpeta_kratky | stadion a cirkus (fanfára) | BigSoundBank #3263 „Bugle Awake for Morning Call“ – https://bigsoundbank.com/bugle-awake-morning-call-s3263.html (převzato z Městečka) | Joseph SARDIN | CC0 1.0 |
+| harmonika | kolotoč a ruské kolo | Wikimedia Commons „Accordion registers.ogg“ – https://commons.wikimedia.org/wiki/File:Accordion_registers.ogg (převzato z Městečka) | Necz0r | Public domain (PD-self) |
+| sova_kratky | noc | BigSoundBank #1764 „Tawny Owl #2“ – https://bigsoundbank.com/tawny-owl-2-s1764.html (převzato z Městečka) | Joseph SARDIN | CC0 1.0 |
+| ptacek_kratky | ráno | BigSoundBank #1667 „Robin #1“ – https://bigsoundbank.com/robin-1-s1667.html (převzato z Městečka) | Joseph SARDIN | CC0 1.0 |
+| kachna_kratky | voda, přístav, lodička | BigSoundBank #0276 „Ducks“ – https://bigsoundbank.com/ducks-s0276.html (převzato z Městečka) | DenisChardonnet | CC0 1.0 |
 
 Syntetizované (bez nahrávky): točna, „puf“, „hop“, „pop“ a cvaknutí výhybky.
 Hlas: věty namluvené hlasem macOS „Zuzana (Enhanced)“ (tools/build.py, složka hlasy/).
