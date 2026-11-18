@@ -26,6 +26,16 @@ Většina je převzata hotová (oříznutá a sjednocená) z Davídkova městeč
 | sova_kratky | noc | BigSoundBank #1764 „Tawny Owl #2“ – https://bigsoundbank.com/tawny-owl-2-s1764.html (převzato z Městečka) | Joseph SARDIN | CC0 1.0 |
 | ptacek_kratky | ráno | BigSoundBank #1667 „Robin #1“ – https://bigsoundbank.com/robin-1-s1667.html (převzato z Městečka) | Joseph SARDIN | CC0 1.0 |
 | kachna_kratky | voda, přístav, lodička | BigSoundBank #0276 „Ducks“ – https://bigsoundbank.com/ducks-s0276.html (převzato z Městečka) | DenisChardonnet | CC0 1.0 |
+| lev | zoo (lev) | Wikimedia Commons „Lion raring-sound1TamilNadu178.ogg“ – https://commons.wikimedia.org/wiki/File:Lion_raring-sound1TamilNadu178.ogg | த*உழவன் (Wikimedia Commons) | Public domain (PD-self) |
+| slon | zoo (slon) | Wikimedia Commons „Elephant voice - trumpeting.ogg“ – https://commons.wikimedia.org/wiki/File:Elephant_voice_-_trumpeting.ogg | தகவலுழவன் (Wikimedia Commons) | CC0 1.0 |
+| opice | zoo (opička) | Wikimedia Commons „Pant-hoot call made by a male chimpanzee.ogg“ – https://commons.wikimedia.org/wiki/File:Pant-hoot_call_made_by_a_male_chimpanzee.ogg | Pawel Fedurek et al. (PMC5674848, doplňkový materiál) | **CC BY 4.0** – vyžaduje uvedení autora; upraveno (oříznuto, hlasitost) |
+| prase_kratky | ohrada (prasátko) | Wikimedia Commons „Pig grunt - Erdie.ogg“ – https://commons.wikimedia.org/wiki/File:Pig_grunt_-_Erdie.ogg | erdie (freesound.org/people/Erdie, zvuk 44274) | **CC BY 3.0** – vyžaduje uvedení autora; upraveno (oříznuto, zopakováno, hlasitost) |
+| koza | ohrada (kozička) | BigSoundBank #0279 „Bleating Goat #1“ – https://bigsoundbank.com/bleating-goat-1-s0279.html | DenisChardonnet | CC0 1.0 |
 
 Syntetizované (bez nahrávky): točna, „puf“, „hop“, „pop“ a cvaknutí výhybky.
 Hlas: věty namluvené hlasem macOS „Zuzana (Enhanced)“ (tools/build.py, složka hlasy/).
+
+## Poděkování (CC BY)
+
+- Prasátko: „Pig grunt“ – erdie, https://freesound.org/people/Erdie/sounds/44274/ (přes Wikimedia Commons), CC BY 3.0 https://creativecommons.org/licenses/by/3.0/, upraveno.
+- Opička: „Pant-hoot call made by a male chimpanzee“ – Pawel Fedurek et al., https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5674848/ (přes Wikimedia Commons), CC BY 4.0 https://creativecommons.org/licenses/by/4.0/, upraveno.
